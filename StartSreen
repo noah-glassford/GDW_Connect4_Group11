@@ -1,0 +1,60 @@
+#include <iostream>
+using namespace std;
+
+int startscreeninput=0;//the input from the user on the start screen
+int difficulty=0;//the input for the difficuty
+
+int main()
+{
+	cout << " _____________________________________________________\n";
+	cout << "|   __    _                 ___    _____              |\n";
+	cout << "|  |  |  |_|___ ___     ___|  _|  |   __|___ _ _ ___  |\n";
+	cout << "|  |  |__| |   | -_|   | . |  _|  |   __| . | | |  _| |\n";
+	cout << "|  |_____|_|_|_|___|   |___|_|    |__|  |___|___|_|   |\n";
+	cout << "|_____________________________________________________|\n";
+	cout << endl;
+	cout << "	      1 = Two Player\n";
+	cout << "	      2 = Single Player vs AI\n";
+	cout << "	      3 = EXIT\n";
+	cout << endl;
+
+	cout << "Please type in either 1, 2 or 3 from the options above to coninue: ";
+
+	cin >> startscreeninput;
+
+	if (startscreeninput == 1)
+	{
+		//add the two player game here
+	}
+	else if (startscreeninput == 2)
+	{
+		cout << "Please select the difficulty of the AI\n";
+		cout << "1 = EASY\n";
+		cout << "2 = MEDIUM\n";
+		cout << "3 = HARD\n";
+		cin >> difficulty;
+
+		if (difficulty == 1)
+		{
+			//play against the easy AI
+		}
+		else if (difficulty == 2)
+		{
+			//play against the medium AI
+		}
+		else if (difficulty == 3)
+		{
+			//play against the hard AI
+		}
+		else
+			cout << "INVALID ENTRY";
+
+	}
+	else if (startscreeninput == 3)
+	{
+		cout << "Thanks for Playing\n";
+		return 0;
+	}
+	else
+		cout << "INVALID ENTRY";
+}
