@@ -5,12 +5,12 @@
 
 using namespace std;
 
-const string Title[6] = {" _____________________________________________________ ",
+const string Title[6] = { " _____________________________________________________ ",
 						 "|   __    _                 ___    _____              |",
 						 "|  |  |  |_|___ ___     ___|  _|  |   __|___ _ _ ___  |",
 						 "|  |  |__| |   | -_|   | . |  _|  |   __| . | | |  _| |",
 						 "|  |_____|_|_|_|___|   |___|_|    |__|  |___|___|_|   |",
-						 "|_____________________________________________________|"};
+						 "|_____________________________________________________|" };
 
 int startscreeninput = 0; //the input from the user on the start screen
 int levelAI = 0; //the input for the difficuty
@@ -21,7 +21,7 @@ const int maxColumn = 7;
 const int maxRow = 6;
 int boardNum[maxColumn][maxRow];
 string board[maxColumn][maxRow];
-string columns[maxRow] = { "  1  ","  2  ","  3  ","  4  ","  5  ","  6  "};
+string columns[maxRow] = { "  1  ","  2  ","  3  ","  4  ","  5  ","  6  " };
 const string boardSpace = "[( )]";
 
 
@@ -38,7 +38,7 @@ void startScreenOutput() {
 		cout << Title[i] << endl;
 	}
 	cout << endl;
-	
+
 	cout << "	      1 = Two Player\n";
 	cout << "	      2 = Single Player vs AI\n";
 	cout << "	      3 = EXIT\n";
@@ -52,10 +52,10 @@ void startScreen() {
 	cout << "Please type in either 1, 2 or 3 from the options above to coninue: ";
 	cin >> gamemode;
 
-	if (gamemode == 1){
+	if (gamemode == 1) {
 		twoPlayer();
 	}
-	else if (gamemode == 2){
+	else if (gamemode == 2) {
 		getLevelAI();
 	}
 	else if (gamemode != 1 && gamemode != 2 && gamemode != 3) {
@@ -98,19 +98,19 @@ void twoPlayer() {
 	cout << endl << "Player 1 will be using O pieces, Player 2 will be using 0 pieces." << '\n' << "Going first will be Player " << player << endl << endl;
 	setupBoard();
 	drawBoard();
-	
+
 	while (game) {
 		cout << endl << "Player " << player << ", pick your row: ";
 		int drop;
-		cin >> drop; 
+		cin >> drop;
 		cout << endl;
 		basicGame(drop, player);
 		updateBoard();
 		drawBoard();
 		//check win condition
 		switch (player) { //update current player
-			case 1: player = 2; break;
-			case 2: player = 1; break;
+		case 1: player = 2; break;
+		case 2: player = 1; break;
 		}
 	}
 }
@@ -122,10 +122,11 @@ void onePlayer() {
 
 void basicGame(int columnSelected, int playerTurn) {
 	bool found = false;
-	for (int i = maxColumn; i >= 0 && !found ; i--) {
-		
-		if ( boardNum[i][maxRow] == 0) {
-			boardNum[i][maxRow] = player;
+	int column = columnSelected - 1;
+	for (int i = maxColumn; i >= 0 && !found; i--) {
+
+		if (boardNum[i][column] == 0) {
+			boardNum[i][column] = player;
 			found = true;
 		}
 	}
@@ -160,7 +161,7 @@ void drawBoard() {
 	}
 }
 
-int main(){
+int main() {
 	startScreen();
 	cout << "Thanks for Playing\n";
 }
