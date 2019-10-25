@@ -5,12 +5,12 @@
 
 using namespace std;
 
-const string Title[6] = { " _____________________________________________________ ",
+const string Title[6] = {" _____________________________________________________ ",
 						 "|   __    _                 ___    _____              |",
 						 "|  |  |  |_|___ ___     ___|  _|  |   __|___ _ _ ___  |",
 						 "|  |  |__| |   | -_|   | . |  _|  |   __| . | | |  _| |",
 						 "|  |_____|_|_|_|___|   |___|_|    |__|  |___|___|_|   |",
-						 "|_____________________________________________________|" };
+						 "|_____________________________________________________|"};
 
 int startscreeninput = 0; //the input from the user on the start screen
 int levelAI = 0; //the input for the difficuty
@@ -69,7 +69,7 @@ void getLevelAI() {
 	cout << "2 = MEDIUM\n";
 	cout << "3 = HARD\n";
 	cin >> levelAI;
-
+	
 	if (levelAI == 1) {
 		//play against the easy AI
 	}
@@ -121,13 +121,12 @@ void onePlayer() {
 }
 
 void basicGame(int columnSelected, int playerTurn) {
-	bool found = false;
 	int column = columnSelected - 1;
-	for (int i = maxColumn; i >= 0 && !found; i--) {
+	for (int i = maxColumn; i >= 0; i--) {
 
 		if (boardNum[i][column] == 0) {
 			boardNum[i][column] = player;
-			found = true;
+			break;
 		}
 	}
 	//start at bottom of column, if its already occupied, go up to the next one
@@ -141,7 +140,7 @@ void updateBoard() {
 				board[i][j] = "[(O)]";
 			}
 			else if (boardNum[i][j] == 2) {
-				board[i][j] = "[(0)]";
+				board[i][j] = "[(X)]";
 			}
 		}
 	}
