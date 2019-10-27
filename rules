@@ -1,0 +1,52 @@
+void startScreen()
+{
+	startScreenOutput();
+	bool InputLoop{ true };
+	int gamemode;
+	cout << "Please type in either 1, 2, 3 or 4 from the options above to coninue: ";
+
+	while (1)
+	{
+		cin >> gamemode;
+		if (cin.fail())
+		{
+			cin.clear();
+			cin.ignore(numeric_limits<streamsize>::max(), '\n');
+			std::cout << "Invalid input, try again" << std::endl;
+		}
+		else
+		{
+			break;
+		}
+	}
+	if (gamemode == 1) {
+		twoPlayer();
+		InputLoop = false;
+	}
+	else if (gamemode == 2) {
+		getLevelAI();
+		InputLoop = false;
+	}
+	else if (gamemode == 4)
+	{
+		system("CLS");
+		std::cout << "Thanks for playing!";
+		exit(1);
+	}
+	else if (gamemode == 3)
+	{
+		system("CLS");
+		std::cout << "Here are the Rules:\n";
+		std::cout << endl;
+		std::cout << "Four in a row AKA Connect 4 is a game where your goal is connect 4 of your pieces \ntogether in a row.";
+		std::cout << " This goal can be done by having 4 consecutive pieces in a row\nhorizontally, vertically, or diagonally.";
+		std::cout << " The game will take turns allowing each\nplayer to place one piece in a turn.Your goal is to block your ";
+		std::cout << "opponents 4 in a\nrow while trying to get 4 of your piece in a row first.When it is your turn, type\nin an ";
+		std::cout << "integer from 1-7 which will represent which row to drop your piece in. If\nthe game is 2 player, then let ";
+		std::cout << "your opponent take his turn. If you are playing\nagainst AI, the AI will automatically place their piece";
+		std::cout << "after you make your move.\nThat is pretty much it.Thanks for reading and hope you enjoy the game :) ";
+	}
+	else if (gamemode != 1 && gamemode != 2 && gamemode != 3 && gamemode != 4) {
+		cout << "Invalid input, try again \n";
+	}
+}
